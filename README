@@ -1,0 +1,26 @@
+This is a little library for talking PJL to HP JetDirect printers.  It
+may be used to talk PJL to other printers that understand PJL, but I
+have never tested that, nor do I have a need to.
+
+You may ask, why would anyone want to talk directly to a printer?
+
+Being able to talk directly to the printer allows you to micromanage
+job progress.  This is important in applications where each paper
+printed is highly valuable and duplicates or lack of printing could be
+problematic.  For example, I have used it for a (proprietary) check
+printing system, and I am able to tell when each newly printed check
+rolls out onto the top bin.  Being able to tell when this happens
+allows me to mark it as printed in the system as it happens to prevent
+it from being printed again.  I can also watch for out of paper
+events, paper jams, or job cancellations and deal with them
+gracefully.  In addition, Since I am talking to the printer, I can
+store postscript dictionaries on the printer, and ask the printer what
+it has in memory to find out what I may need to load before sending
+the job, saving precious bandwidth on printers that live far across a
+WAN.  All of these things are difficult to do with the extra layer of
+abstraction of a print queue between the application and printer.
+
+At this point, it is a working library, and I am using it in
+production, however this project does not currently have the
+documentation needed or any examples of using the library.  I imagine
+sometime in the future I may provide some examples and tests.
