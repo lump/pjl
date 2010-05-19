@@ -6,8 +6,7 @@ import java.util.EventObject;
 /**
  * This event is usually fired when an input event is received.
  *
- * @author troy
- * @version $Id: InputEvent.java,v 1.3 2009/04/02 03:27:41 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class InputEvent extends EventObject implements Serializable
 {

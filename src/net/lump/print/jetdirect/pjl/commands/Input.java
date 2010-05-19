@@ -9,8 +9,7 @@ import java.util.regex.Pattern;
 /**
  * This interface indicates that the command expects input.
  *
- * @author troy
- * @version $Id: Input.java,v 1.4 2009/05/02 02:40:27 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public interface Input extends Serializable
 {

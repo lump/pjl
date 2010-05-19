@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 /**
  * A PAGE Unsolicited Status type.  This type gets the page of the job that has just been printed.
  *
- * @author troy
- * @version $Id: UnsolicitedPageType.java,v 1.7 2009/05/04 23:14:05 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class UnsolicitedPageType extends UnsolicitedOnOffType implements Serializable
 {

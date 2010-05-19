@@ -9,8 +9,7 @@ import net.lump.print.jetdirect.pjl.enums.CommandNames;
  * command at the end of PJL jobs that use the SET command to set
  * the printer back to its default state.
  *
- * @author troy
- * @version $Id: Reset.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Reset extends Command
 {

@@ -4,8 +4,7 @@ package net.lump.print.snmp;
 /**
  * These are training levels required for printer alerts.
  *
- * @author troy
- * @version $Id: AlertTrainingLevel.java,v 1.2 2009/08/21 16:51:41 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 @SuppressWarnings({"UnusedDeclaration"})
 public enum AlertTrainingLevel

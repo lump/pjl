@@ -6,8 +6,7 @@ import net.lump.print.jetdirect.pjl.enums.CommandNames;
 /**
  * Generic message for the message commands.
  *
- * @author troy
- * @version $Id: Message.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class Message extends Command
 {

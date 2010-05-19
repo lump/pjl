@@ -4,8 +4,7 @@ package net.lump.lib.util;
  * An Interval is a utility class used to define human-known intervals of time
  * and to easily output human-readable intervals.
  *
- * @author troy
- * @version $Id: Interval.java,v 1.2 2009/10/02 22:06:23 troy Exp $
+ * @author M. Troy Bowman
  */
 public enum Interval {
 

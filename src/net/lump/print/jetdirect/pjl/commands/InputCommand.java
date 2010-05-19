@@ -8,8 +8,7 @@ import javax.swing.event.EventListenerList;
 /**
  * This implements the listeners for a command which expects input.
  *
- * @author troy
- * @version $Id: InputCommand.java,v 1.3 2009/05/02 02:40:27 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class InputCommand extends Command implements Input
 {

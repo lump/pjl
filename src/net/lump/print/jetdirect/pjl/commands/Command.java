@@ -8,8 +8,7 @@ import java.io.*;
 /**
  * An abstract command, which all commands must subclass.
  *
- * @author troy
- * @version $Id: Command.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class Command
 {

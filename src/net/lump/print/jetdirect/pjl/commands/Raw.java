@@ -12,8 +12,7 @@ import java.util.regex.Pattern;
 /**
  * A raw command simply outputs the exact string it was created with..
  *
- * @author troy
- * @version $Id: Raw.java,v 1.3 2009/04/30 02:16:27 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Raw extends InputCommand
 {

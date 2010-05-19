@@ -27,8 +27,7 @@ import net.lump.print.jetdirect.pjl.enums.LanguagePersonality;
  * and the read-only variables. See the ?Environment Variables? section
  * of this chapter for a discussion of each environment variable.
  *
- * @author troy
- * @version $Id: Set.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Set extends Command
 {

@@ -6,8 +6,7 @@ import java.io.Serializable;
  * A DEVICE Unsolicited Status type.
  * This status type gives notifications of device status changes.
  *
- * @author troy
- * @version $Id: UnsolicitedDeviceType.java,v 1.6 2009/11/12 17:49:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class UnsolicitedDeviceType extends UnsolicitedStatusType implements Serializable
 {

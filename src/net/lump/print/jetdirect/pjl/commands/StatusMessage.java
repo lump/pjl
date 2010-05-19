@@ -10,8 +10,7 @@ import net.lump.print.jetdirect.pjl.enums.CommandNames;
  * operator presses the On Line, Continue, or Reset key, and to take a
  * different action depending on which key the user presses.
  *
- * @author troy
- * @version $Id: StatusMessage.java,v 1.3 2009/04/02 03:27:39 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class StatusMessage extends Message
 {

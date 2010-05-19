@@ -7,8 +7,7 @@ import java.util.regex.Pattern;
 /**
  * This class holds static constants that all print classes may need.
  *
- * @author troy
- * @version $Id: PrintConstants.java,v 1.5 2009/03/21 03:19:56 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class PrintConstants
 {

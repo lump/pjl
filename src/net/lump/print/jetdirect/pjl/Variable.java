@@ -11,8 +11,7 @@ import java.util.regex.Pattern;
 /**
  * A PJL variable.
  *
- * @author troy
- * @version $Id: Variable.java,v 1.3 2009/04/30 20:45:57 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Variable implements Serializable
 {

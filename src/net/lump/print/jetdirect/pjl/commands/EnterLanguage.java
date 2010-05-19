@@ -9,8 +9,7 @@ import net.lump.print.jetdirect.pjl.enums.LanguagePersonality;
  * PCL or PostScript). Use this command to select the printer language
  * for printing subsequent data.
  *
- * @author troy
- * @version $Id: EnterLanguage.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class EnterLanguage extends Command
 {

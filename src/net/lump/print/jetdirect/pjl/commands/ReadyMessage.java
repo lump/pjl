@@ -12,8 +12,7 @@ import net.lump.print.jetdirect.pjl.enums.CommandNames;
  * other pertinent information, while a job is printing. It also can be used
  * in network environments to display the name of the printer.
  *
- * @author troy
- * @version $Id: ReadyMessage.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class ReadyMessage extends Message
 {

@@ -8,8 +8,7 @@ package net.lump.print.snmp;
  * Wherever possible, the enumerations match the sub-identifier
  * that identifies the relevant table in the Printer MIB.
  *
- * @author troy
- * @version $Id: AlertGroup.java,v 1.2 2009/08/21 16:51:41 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 @SuppressWarnings({"UnusedDeclaration"})
 public enum AlertGroup

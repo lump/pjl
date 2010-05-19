@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 /**
  * A model for an Unsolicited Status type which has STATUS output variables.
  *
- * @author troy
- * @version $Id: UnsolicitedStatusType.java,v 1.5 2009/11/12 17:49:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class UnsolicitedStatusType extends UnsolicitedType implements Serializable
 {

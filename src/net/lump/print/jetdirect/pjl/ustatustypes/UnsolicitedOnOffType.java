@@ -5,8 +5,7 @@ import java.io.Serializable;
 /**
  * A model for an Unsolicited Status type which only input values of ON and OFF.
  *
- * @author troy
- * @version $Id: UnsolicitedOnOffType.java,v 1.3 2009/04/02 03:27:39 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class UnsolicitedOnOffType extends UnsolicitedType implements Serializable
 {

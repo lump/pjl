@@ -21,8 +21,7 @@ import java.util.Vector;
  * the DISPLAY variable, the JOB command can be used to display a
  * control panel message while printing the job.
  *
- * @author troy
- * @version $Id: Job.java,v 1.4 2009/05/02 02:40:27 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Job extends Command implements HasUnsolicitedStati
 {

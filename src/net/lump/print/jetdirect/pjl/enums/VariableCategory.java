@@ -5,8 +5,7 @@ import java.io.Serializable;
 /**
  * A variable category.
  *
- * @author troy
- * @version $Id: VariableCategory.java,v 1.3 2009/04/02 03:27:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 @SuppressWarnings({"UnusedDeclaration"})
 public enum VariableCategory implements Serializable

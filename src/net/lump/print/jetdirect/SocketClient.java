@@ -21,8 +21,7 @@ import java.util.regex.Pattern;
 /**
  * This class manages JetDirect sockets.
  *
- * @author troy
- * @version $Id: SocketClient.java,v 1.8 2010/03/17 21:00:44 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class SocketClient
 {

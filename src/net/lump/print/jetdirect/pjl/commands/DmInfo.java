@@ -8,8 +8,7 @@ import java.util.regex.Pattern;
 /**
  * .
  *
- * @author troy
- * @version $Id: DmInfo.java,v 1.2 2009/06/11 20:49:33 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class DmInfo extends InputCommand
 {

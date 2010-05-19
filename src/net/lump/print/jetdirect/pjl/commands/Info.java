@@ -20,8 +20,7 @@ import java.util.regex.Pattern;
  * environmental, printer language-dependent, and unsolicited status
  * variables.
  *
- * @author troy
- * @version $Id: Info.java,v 1.3 2009/04/30 02:16:27 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Info extends InputCommand
 {

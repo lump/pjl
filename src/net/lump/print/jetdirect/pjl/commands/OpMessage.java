@@ -8,8 +8,7 @@ import net.lump.print.jetdirect.pjl.enums.CommandNames;
  * halt printing until the operator presses the On Line, Continue, or
  * Reset key.
  *
- * @author troy
- * @version $Id: OpMessage.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class OpMessage extends Message
 {

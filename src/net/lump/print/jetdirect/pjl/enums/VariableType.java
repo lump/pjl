@@ -6,8 +6,7 @@ import java.io.Serializable;
 /**
  * Types of variables.
  *
- * @author troy
- * @version $Id: VariableType.java,v 1.3 2009/04/02 03:27:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public enum VariableType implements Serializable
 {

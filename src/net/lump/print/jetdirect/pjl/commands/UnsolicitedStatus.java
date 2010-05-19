@@ -24,8 +24,7 @@ import java.util.regex.Pattern;
  * immediate response. Instead, unsolicited status messages are sent
  * only when the printer status changes.
  *
- * @author troy
- * @version $Id: UnsolicitedStatus.java,v 1.4 2009/04/30 02:16:26 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class UnsolicitedStatus extends InputCommand implements Serializable
 {

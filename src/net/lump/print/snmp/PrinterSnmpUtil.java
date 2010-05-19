@@ -14,8 +14,7 @@ import static net.lump.print.snmp.PrinterSnmpUtil.Command.*;
 /**
  * Utility class for printer SNMP queries.
  *
- * @author troy
- * @version $Id: PrinterSnmpUtil.java,v 1.10 2010/03/25 19:31:33 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class PrinterSnmpUtil
 {

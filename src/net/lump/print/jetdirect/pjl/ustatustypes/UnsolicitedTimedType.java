@@ -5,8 +5,7 @@ import java.io.Serializable;
 /**
  * A TIMED unsolicited status type..
  *
- * @author troy
- * @version $Id: UnsolicitedTimedType.java,v 1.4 2009/11/12 17:49:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class UnsolicitedTimedType extends UnsolicitedStatusType implements Serializable
 {

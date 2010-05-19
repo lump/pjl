@@ -7,8 +7,7 @@ package net.lump.print.snmp;
  * sub-unit type: for example, Media Supply Low and Media
  * Supply Empty are Aler codes for the Input sub-unit.
  *
- * @author troy
- * @version $Id: AlertCode.java,v 1.2 2009/08/21 16:51:41 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 @SuppressWarnings({"UnusedDeclaration"})
 public enum AlertCode

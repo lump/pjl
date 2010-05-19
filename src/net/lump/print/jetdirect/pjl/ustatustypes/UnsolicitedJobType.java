@@ -11,8 +11,7 @@ import java.util.regex.Pattern;
  * A JOB Unsolicited Status type.  This notifies when a job has begun or ended.
  * If this is a postscript job, we've extended this to find out whether errored out (failed).
  *
- * @author troy
- * @version $Id: UnsolicitedJobType.java,v 1.9 2009/05/11 15:10:43 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class UnsolicitedJobType extends UnsolicitedOnOffType implements Serializable
 {

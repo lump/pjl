@@ -5,8 +5,7 @@ import java.util.EventListener;
 /**
  * This is a listener which listens for input events.
  *
- * @author troy
- * @version $Id: InputEventListener.java,v 1.2 2009/01/30 23:39:34 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract interface InputEventListener extends EventListener
 {

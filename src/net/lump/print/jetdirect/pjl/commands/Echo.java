@@ -23,8 +23,7 @@ import java.util.regex.Pattern;
  * aware that applications may receive an unsolicited status response
  * after requesting printer status information.
  *
- * @author troy
- * @version $Id: Echo.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Echo extends net.lump.print.jetdirect.pjl.commands.InputCommand
 {

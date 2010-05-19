@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 /**
  * .
  *
- * @author troy
- * @version $Id: Inquire.java,v 1.2 2009/01/30 23:39:30 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class Inquire extends InputCommand
 {

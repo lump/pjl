@@ -14,8 +14,7 @@ import net.lump.print.jetdirect.pjl.commands.Command;
  * page status.</li>
  * </ul>
  *
- * @author troy
- * @version $Id: EndOfJob.java,v 1.3 2009/04/30 20:45:57 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public class EndOfJob extends Command
 {

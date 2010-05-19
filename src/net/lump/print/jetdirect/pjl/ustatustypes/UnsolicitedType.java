@@ -7,8 +7,7 @@ import java.io.Serializable;
 /**
  * An abstract Unsolicited Status type.
  *
- * @author troy
- * @version $Id: UnsolicitedType.java,v 1.4 2009/11/12 17:49:40 bowmant Alpha $
+ * @author M. Troy Bowman
  */
 public abstract class UnsolicitedType implements Serializable
 {
