@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 /**
  * This is an example of using this library to talk to a printer.
- *
- * @version $Id$
  */
 public class ExampleJob {
 
