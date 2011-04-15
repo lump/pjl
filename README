@@ -20,7 +20,6 @@ the job, saving precious bandwidth on printers that live far across a
 WAN.  All of these things are difficult to do with the extra layer of
 abstraction of a print queue between the application and printer.
 
-At this point, it is a working library, and I am using it in
-production, however this project does not currently have the
-documentation needed or any examples of using the library.  I imagine
-sometime in the future I may provide some examples and tests.
+Please see test/ExampleJob for an example of using this library.
+There is also a testng net.lump.print.TestPrinting which has more
+examples.
