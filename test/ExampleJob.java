@@ -22,11 +22,11 @@ public class ExampleJob {
 
       // check for our expected hostname argument
       if (args.length != 1) {
-         System.err.println("please provide a printer hostname or ip address to test with");
+         System.err.println("please provide a printer hostname or ip address as an argument");
          System.exit(1);
       }
 
-      // resolve the hostname
+      // resolve the hostname for safety
       InetAddress address = null;
       try
       {
@@ -46,30 +46,37 @@ public class ExampleJob {
       // this is a comment PJL command
       commands.add(new Comment(" Testing 1 2 3 "));
 
+      // create a PJL command that uses our listener above for Device events
+      UnsolicitedStatus printerStatus = new UnsolicitedStatus(new UnsolicitedDeviceType(UnsolicitedDeviceType.InputValue.ON));
+      commands.add(printerStatus);
+
       // this listener will listen for unsolicited events and print them to stderr
       // you could use these events to notify your application of printer status events
-      InputEventListener unsolicitedStatusListener = new InputEventListener()
-      {
+      printerStatus.addInputListener(new InputEventListener() {
          public void inputEventOccurred(InputEvent event)
          {
             if (event.getSource() instanceof UnsolicitedStatusType)
             {
                UnsolicitedStatusType usd = (UnsolicitedStatusType)event.getSource();
-               System.err.printf(usd.toString() + "\n");
+               System.err.printf("Device Event: " + usd.toString() + "\n");
             }
          }
-      };
+      });
 
-      // create a PJL command that uses our listener above for Device events
-      UnsolicitedStatus printerStatus = new UnsolicitedStatus(new UnsolicitedDeviceType(UnsolicitedDeviceType.InputValue.ON));
-      printerStatus.addInputListener(unsolicitedStatusListener);
-      commands.add(printerStatus);
-
-      // if you want printer status every 5 seconds, use this.
+      // if you want a printer status at a certain interval, use this.
       // i've used this before as a keepalive to tell my application that the printer is still there
       UnsolicitedStatus timedPrinterStatus = new UnsolicitedStatus(new UnsolicitedTimedType(5));
-      timedPrinterStatus.addInputListener(unsolicitedStatusListener);
       commands.add(timedPrinterStatus);
+      timedPrinterStatus.addInputListener(new InputEventListener() {
+         public void inputEventOccurred(InputEvent event)
+         {
+            if (event.getSource() instanceof UnsolicitedStatusType)
+            {
+               UnsolicitedStatusType usd = (UnsolicitedStatusType)event.getSource();
+               System.err.printf("Timed Event: " + usd.toString() + "\n");
+            }
+         }
+      });
 
 
       // create a PJL job that will display "Troy's Test Job" in the printer's display
@@ -82,7 +89,7 @@ public class ExampleJob {
          {
             if (event.getSource() instanceof UnsolicitedPageType)
             {
-               System.err.println("Printed page " + ((UnsolicitedPageType)event.getSource()).getPage());
+               System.err.println("Page Event: Printed page " + ((UnsolicitedPageType)event.getSource()).getPage());
             }
          }
       });
@@ -94,7 +101,7 @@ public class ExampleJob {
          {
             if (event.getSource() instanceof UnsolicitedJobType)
             {
-               System.err.println(event.getSource().toString());
+               System.err.println("Job Event: " + event.getSource().toString());
             }
          }
       });
