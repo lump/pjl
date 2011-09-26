@@ -361,6 +361,58 @@ public class TestPrinting
             == UnsolicitedJobType.Status.FINISHED : "Job was not finished";
    }
 
+   @Test
+   public static void testInfoId() throws Exception
+   {
+      String jobName = "TestInfoJob-" + System.currentTimeMillis() + Math.random();
+      ArrayList<Command> commands = new ArrayList<Command>();
+      commands.add(new Comment(" Testing 1 2 3 "));
+
+      UnsolicitedStatus printerStatus = new UnsolicitedStatus(
+            new UnsolicitedDeviceType(UnsolicitedDeviceType.InputValue.ON));
+
+      printerStatus.addInputListener(new InputEventListener() {
+         public void inputEventOccurred(InputEvent event) {
+            if (event.getSource() instanceof UnsolicitedDeviceType) {
+               UnsolicitedDeviceType usd = (UnsolicitedDeviceType)event.getSource();
+               System.err.printf("Code: %s Online: %s Display: %s%n",
+                     usd.getCode(), usd.getOnline(), usd.getDisplay());
+            }
+         }
+      });
+      commands.add(printerStatus);
+
+      Job j = new Job(jobName, "Troy's Test Job");
+      commands.add(j);
+
+      Info info = new Info(VariableCategory.ID);
+
+      info.addInputListener(new InputEventListener()
+      {
+         public void inputEventOccurred(InputEvent event)
+         {
+            if (event.getSource() instanceof Info)
+            {
+               Info i = (Info)event.getSource();
+               if (i.getCategory() == VariableCategory.ID)
+                  System.out.println("ID: " + i.getVariable(VariableCategory.ID.name()).getValue());
+            }
+         }
+      });
+
+      commands.add(info);
+
+      commands.add(new EndOfJob(jobName));
+
+      SocketClient sc = SocketClient.getSocket(printer);
+      String output = sc.invokePjlCommands(commands);
+      if (output.length() > 0)
+      {
+         System.err.println("OUTPUT: " + output);
+      }
+   }
+
+
    /*
     * This test tests variable retrieval and modification.
     */

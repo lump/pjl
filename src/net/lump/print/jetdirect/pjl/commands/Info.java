@@ -95,61 +95,71 @@ public class Info extends InputCommand
       HashMap<String, Variable> oldVariables = new HashMap<String, Variable>();
       oldVariables.putAll(variables);
 
-      // this pattern catches the way in which variables are expressed.
-      Pattern startPattern = Pattern.compile(String.format(
-         "^(?:(?:(LPARM)\\s?:\\s?(%s)|IPARM\\s?:\\s?\\S+?)? )?([\\w ]*\\w)(?:=\\\"?([\\w\\.]+)\\\"?)?(?: \\[(?:(?:(\\d+) (%s))?(?: (%s))?)\\])?.*$",
-         LanguagePersonality.join('|'),
-         VariableType.join('|'),
-         readonly));
-      Pattern appendPattern = Pattern.compile("^\\s+(\\S+)\\s*$");
+      // ID is a one-off variable
+      if (category == VariableCategory.ID) {
+         Variable id = new Variable(VariableCategory.ID.name(), input.replaceAll("\\s*$",""));
+         id.setReadOnly(true);
+         id.setType(VariableType.STRING);
+         variables.put(VariableCategory.ID.name(), new Variable(VariableCategory.ID.name(), input));
+      }
+      else {
 
-      Variable currentVariable = null;
+         // this pattern catches the way in which variables are expressed.
+         Pattern startPattern = Pattern.compile(String.format(
+               "^(?:(?:(LPARM)\\s?:\\s?(%s)|IPARM\\s?:\\s?\\S+?)? )?([\\w ]*\\w)(?:=\\\"?([\\w\\.]+)\\\"?)?(?: \\[(?:(?:(\\d+) (%s))?(?: (%s))?)\\])?.*$",
+               LanguagePersonality.join('|'),
+               VariableType.join('|'),
+               readonly));
+         Pattern appendPattern = Pattern.compile("^\\s+(\\S+)\\s*$");
 
-      // split the string into lines and analyze each line in turn.
-      for (String line : input.split(PrintConstants.EOLp.pattern()))
-      {
+         Variable currentVariable = null;
 
-         // if the line is empty, skip it.
-         if (line == null || line.matches("^\\s*$"))
-         {
-            continue;
-         }
-
-         // if the line matches our variable pattern,
-         Matcher m = startPattern.matcher(line);
-         if (m.matches() && m.group(NAME.ordinal()) != null)
+         // split the string into lines and analyze each line in turn.
+         for (String line : input.split(PrintConstants.EOLp.pattern()))
          {
 
-            // set the current variable to the one we're on now.
-            currentVariable = new Variable(m.group(NAME.ordinal()), m.group(VALUE.ordinal()));
-
-            variables.put(currentVariable.getName(), currentVariable);
-
-            if (m.group(NUMBER.ordinal()) != null && m.group(TYPE.ordinal()) != null)
+            // if the line is empty, skip it.
+            if (line == null || line.matches("^\\s*$"))
             {
-               int size = Integer.parseInt(m.group(NUMBER.ordinal()));
-               currentVariable.setType(VariableType.valueOf(m.group(TYPE.ordinal())));
-               currentVariable.setPossibilities(new Vector<String>(size));
+               continue;
             }
 
-            if (m.group(LPARM.ordinal()) != null && m.group(PERSONALITY.ordinal()) != null)
+            // if the line matches our variable pattern,
+            Matcher m = startPattern.matcher(line);
+            if (m.matches() && m.group(NAME.ordinal()) != null)
             {
-               currentVariable.setLParm(LanguagePersonality.valueOf(m.group(PERSONALITY.ordinal())));
+
+               // set the current variable to the one we're on now.
+               currentVariable = new Variable(m.group(NAME.ordinal()), m.group(VALUE.ordinal()));
+
+               variables.put(currentVariable.getName(), currentVariable);
+
+               if (m.group(NUMBER.ordinal()) != null && m.group(TYPE.ordinal()) != null)
+               {
+                  int size = Integer.parseInt(m.group(NUMBER.ordinal()));
+                  currentVariable.setType(VariableType.valueOf(m.group(TYPE.ordinal())));
+                  currentVariable.setPossibilities(new Vector<String>(size));
+               }
+
+               if (m.group(LPARM.ordinal()) != null && m.group(PERSONALITY.ordinal()) != null)
+               {
+                  currentVariable.setLParm(LanguagePersonality.valueOf(m.group(PERSONALITY.ordinal())));
+               }
+
+               // set readonly if this is not a VARIABLES category, or this variable is read-only.
+               currentVariable.setReadOnly(
+                     this.category != VariableCategory.VARIABLES
+                           || m.group(READONLY.ordinal()) != null && m.group(READONLY.ordinal()).equals(readonly));
             }
 
-            // set readonly if this is not a VARIABLES category, or this variable is read-only.
-            currentVariable.setReadOnly(
-               this.category != VariableCategory.VARIABLES
-               || m.group(READONLY.ordinal()) != null && m.group(READONLY.ordinal()).equals(readonly));
-         }
-
-         m = appendPattern.matcher(line);
-         if (currentVariable != null
-             && currentVariable.getPossibilities() != null
-             && m.matches()
-             && m.group(1) != null)
-         {
-            currentVariable.getPossibilities().add(m.group(1));
+            m = appendPattern.matcher(line);
+            if (currentVariable != null
+                  && currentVariable.getPossibilities() != null
+                  && m.matches()
+                  && m.group(1) != null)
+            {
+               currentVariable.getPossibilities().add(m.group(1));
+            }
          }
       }
 
@@ -167,7 +177,7 @@ public class Info extends InputCommand
       // fire an event for the entire info object if changed is true;
       if (changed)
       {
-         fireEvent(new InputEvent(deepcopy(this)));
+         fireEvent(new InputEvent(this));
       }
 
       // we've officially had output now.
